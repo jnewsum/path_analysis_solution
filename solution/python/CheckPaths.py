@@ -101,7 +101,7 @@ def main(path, tracker, tol):
     """
     Thoughts:
         Need read the csv files into points
-        Need to figure out the transfrom from path to tracker
+        Need to figure out the transform from path to tracker
         Need to inspect path and tracker points to find issues:
             robot failed to follow path
             "does its best" to go to points in order
@@ -113,7 +113,7 @@ def main(path, tracker, tol):
             Could be workspace or safety issue - 
                 robots slow to almost 0 mm/s when close to Workspace boundary
         What can I check with the data?:
-            See if there is the tool stops in similare areas
+            See if there is the tool stops in similar areas
             See if there are issues in path.csv in the areas tracker.csv at the same location
             find transform between points
     """
@@ -136,7 +136,7 @@ def main(path, tracker, tol):
     
     """ looks like there were sequential duplicate points
     This could cause the robot to have trouble moving in a smooth path
-    if the APO.CIS is set larget than tol (1.0), then the robot would have
+    if the APO.CIS is set larget than Tol, then the robot would have
     trouble interpolating through these points.
     There would also be issues if the robot is moving faster than the
     controller can process the points. This is especially problematic when 
@@ -167,7 +167,7 @@ def main(path, tracker, tol):
     
     """
     After comparing duplicate points of path and tracker,
-    it seems the duplicate points did coorelate with the concentrations of points
+    it seems the duplicate points did correlates with the concentrations of points
     in tracker.csv. (see images)
     """
     
@@ -184,7 +184,6 @@ def main(path, tracker, tol):
     You can see t he point overlays with errors in images.
     """
     
-    tPoints = None
     return pathBadPoints, pathBadPointCounts, cleanPathPoints, trackerBadPoints, trackerBadPointCounts, cleanTrackerPoints
 
 
